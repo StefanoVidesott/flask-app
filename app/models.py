@@ -4,7 +4,7 @@ from app import db, app
 class User(db.Model):
     __tablename__ = 'Users'
 
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, autoincrement=True, nullable=False, unique=True, index=True)
     username = Column(String(80), unique=True, nullable=False)
     email = Column(String(120), unique=True, nullable=False)
 
@@ -21,38 +21,47 @@ class User(db.Model):
     #enddef
 
     def save(self):
-        db.session.add(self)
-        db.session.commit()
+        with app.app_context():
+            db.session.add(self)
+            db.session.commit()
+        #endwith
     #enddef
 
     def delete(self):
-        db.session.delete(self)
-        db.session.commit()
+        with app.app_context():
+            db.session.delete(self)
+            db.session.commit()
+        #endwith
     #enddef
 
     @staticmethod
     def get_all():
-        return User.query.all()
+        with app.app_context():
+            return User.query.all()
     #enddef
 
     @staticmethod
     def get_by_id(id):
-        return User.query.get(id)
+        with app.app_context():
+            return User.query.get(id)
     #enddef
 
     @staticmethod
     def get_by_username(username):
-        return User.query.filter_by(username=username).first()
+        with app.app_context():
+            return User.query.filter_by(username=username).first()
     #enddef
 
     @staticmethod
     def get_by_email(email):
-        return User.query.filter_by(email=email).first()
+        with app.app_context():
+            return User.query.filter_by(email=email).first()
     #enddef
 
     @staticmethod
     def get_by_username_or_email(username, email):
-        return User.query.filter_by(username=username).filter_by(email=email).first()
+        with app.app_context():
+            return User.query.filter_by(username=username).filter_by(email=email).first()
     #enddef
 #endclass
 
