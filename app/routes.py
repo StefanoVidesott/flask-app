@@ -13,7 +13,8 @@ def users():
     _template = "<h1>User list</h1>"
     _template += "<ul>"
     for user in User.get_all():
-        _template += "<li>%s</li>" % user.username
+        _template += f"<li>{user.username}</li>"
     #endfor
+    _template += "</ul>"
     return _template
 #enddef
