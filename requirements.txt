@@ -3,3 +3,4 @@ PyMySQL
 Flask-SQLAlchemy
 cryptography
 psycopg2-binary
+python-dateutil

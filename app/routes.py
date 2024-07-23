@@ -1,11 +1,17 @@
 from flask import Blueprint
 from models import User
+from handlers import *
 
 app = Blueprint('app', __name__)
 
 @app.route('/')
 def index():
-    return "<h1>Hello from routes!</h1><p>Check out the <a href='/users'>users</a>!</p>"
+    context = {
+    }
+    page = TestPage()._compile(global_context=context)
+    page_code = "\n".join(r.tag for r in page._style_requirements) + "\n\n" + "\n".join(r.tag for r in page._script_requirements) + "\n\n" + page._code
+    return page_code
+
 #enddef
 
 @app.route('/users')
