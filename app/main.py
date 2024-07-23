@@ -1,7 +1,10 @@
-from flask import Blueprint
+from app import app, db
+from routes import app as routes_blueprint
+from models import create_app_context
 
-main = Blueprint('main', __name__)
+app.register_blueprint(routes_blueprint)
 
-@main.route('/')
-def index():
-    return "<h1>Hello!</h1>"
+if __name__ == '__main__':
+    create_app_context()
+    app.run(host='0.0.0.0')
+#endif

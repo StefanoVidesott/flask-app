@@ -1,20 +1,19 @@
-version: '3.8'
-
 services:
   flask:
     build:
       context: .
       dockerfile: Dockerfile
     environment:
-      - DATABASE_URL=postgresql://user:password@db/mydatabase
+      - DATABASE_URL=mysql+pymysql://user:password@db/CustomDB
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     networks:
       - app-network
     ports:
       - "5000:5000"
     volumes:
-      - ./app:/app
+      - ./app:/flask-app/app
 
   nginx:
     build:
@@ -28,18 +27,24 @@ services:
       - app-network
 
   db:
-    image: postgres:13
+    image: mysql:8.0
     environment:
-      POSTGRES_DB: mydatabase
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
+      MYSQL_DATABASE: CustomDB
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: rootpassword
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - mysql_data:/var/lib/mysql
     networks:
       - app-network
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 volumes:
-  postgres_data:
+  mysql_data:
 
 networks:
   app-network:
