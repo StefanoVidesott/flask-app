@@ -21,6 +21,11 @@ _logs_compose() {
     docker compose logs -f
 }
 
+_build_compose() {
+    echo "Building development environment..."
+    docker compose build
+}
+
 #Flask actions
 _start_flask() {
     echo "Starting Flask server..."
@@ -76,7 +81,7 @@ _upgrade_db() {
 # Usage
 _usage() {
     echo "usage: fdev [compose | flask | db]"
-    echo "Compose usage: fdev compose [start | stop | restart | remove | logs]"
+    echo "Compose usage: fdev compose [start | stop | restart | remove | build | logs]"
     echo "Flask usage: fdev flask [start | stop | restart | logs | bash | shell]"
     echo "Database usage: fdev db [start | stop | restart | logs | mysql | upgrade]"
     echo for more information, see the README.md

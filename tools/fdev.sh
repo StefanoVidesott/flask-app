@@ -28,6 +28,9 @@ fdev() {
         remove)
           _remove_compose
           ;;
+        build)
+          _build_compose
+          ;;
         logs)
           _logs_compose
           ;;
@@ -112,7 +115,7 @@ _fdev_completions() {
   _init_completion || return
 
   local commands="compose flask db"
-  local compose_commands="start stop restart remove logs"
+  local compose_commands="start stop restart remove build logs"
   local flask_commands="start stop restart logs bash shell"
   local db_commands="start stop restart logs mysql upgrade"
 
