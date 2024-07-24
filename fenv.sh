@@ -1,3 +1,3 @@
 #!/bin/bash
 
-source ./tools/fdev.sh
+source ./tools/fdev/fdev.sh

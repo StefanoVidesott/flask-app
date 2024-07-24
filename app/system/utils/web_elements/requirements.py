@@ -1,7 +1,7 @@
 from enum import Flag
 from typing import Dict, List, Set, Union
 
-from system.tools.web_elements import htmllib
+from system.utils.web_elements import htmllib
 
 # GENERAL NOTE: Link-preload can be used on script, css and genral resources to be loaded before they're used
 #               here this feature will be used only with scripts, and with resources of style requirements.

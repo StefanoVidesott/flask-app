@@ -1,8 +1,8 @@
 from typing import Any, Dict, List, Union
 
-from system.tools.web_elements import htmllib
-from system.tools.web_elements.bases import BaseContainer, BaseElement, BaseWidget, BaseWrapper, HTMLData
-from system.tools.web_elements.requirements import CSS_COMMON, JS_COMMON, Resource, ScriptLoading, ScriptRequirement, StyleRequirement
+from system.utils.web_elements import htmllib
+from system.utils.web_elements.bases import BaseContainer, BaseElement, BaseWidget, BaseWrapper, HTMLData
+from system.utils.web_elements.requirements import CSS_COMMON, JS_COMMON, Resource, ScriptLoading, ScriptRequirement, StyleRequirement
 
 # NOTE: there may be unused imports, they're kept in case they're needed when adding new structural elements
 

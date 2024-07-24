@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String
-from app import db, app
-from system.models import EntityModel
+from custom.app_env import db, app
+from system.models.EntityModel import EntityModel
 
 class User(EntityModel):
     __tablename__ = 'Users'

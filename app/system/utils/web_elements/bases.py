@@ -1,7 +1,7 @@
 from typing import Any, Dict, List
 
-from system.tools.web_elements import htmllib
-from system.tools.web_elements.requirements import ScriptRequirement, StyleRequirement
+from system.utils.web_elements import htmllib
+from system.utils.web_elements.requirements import ScriptRequirement, StyleRequirement
 
 CSS_CLASS_PREFIX = "openbridge"
 

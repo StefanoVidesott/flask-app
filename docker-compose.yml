@@ -13,7 +13,7 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - ./app:/flask-app/app
+      - ./app/custom:/app/custom
 
   nginx:
     build:

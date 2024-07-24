@@ -1,6 +1,6 @@
 from flask import Blueprint
-from models import User
-from handlers import *
+from custom.models import User
+from custom.handlers import *
 
 app = Blueprint('app', __name__)
 

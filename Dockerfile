@@ -1,10 +1,14 @@
 FROM python:3.8-slim
 
-WORKDIR /flask-app/app
+WORKDIR /app
 
-COPY ./app /flask-app/app
-COPY ./requirements.txt /flask-app
+COPY ./app/custom /app/custom
+COPY ./app/system /app/system
+COPY ./app/assets /static/assets
+COPY ./app/main.py /app/main.py
 
-RUN pip install -r /flask-app/requirements.txt
+COPY ./requirements.txt /app
 
-CMD ["python", "main.py"]
+RUN pip install -r /app/requirements.txt
+
+CMD ["python", "/app/main.py"]

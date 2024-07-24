@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # Source the fdev_actions.sh file
-source ./tools/fdev_actions.sh
+source ./tools/fdev/fdev_actions.sh
 
 # Define custom commands
 fdev() {
