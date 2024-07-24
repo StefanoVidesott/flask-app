@@ -1,4 +1,4 @@
-from custom.app_env import db, app
+from system import app, db
 from sqlalchemy import func
 from sqlalchemy.ext.declarative import declared_attr
 from datetime import datetime

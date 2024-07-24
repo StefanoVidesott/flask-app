@@ -1,4 +1,4 @@
-from custom.app_env import app, db
+from system import app, db
 from custom.routes import app as routes_blueprint
 from custom.models import create_app_context
 

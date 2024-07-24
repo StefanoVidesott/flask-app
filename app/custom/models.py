@@ -1,5 +1,5 @@
+from system import app, db
 from sqlalchemy import Column, Integer, String
-from custom.app_env import db, app
 from system.models.EntityModel import EntityModel
 
 class User(EntityModel):
